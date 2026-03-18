@@ -15,7 +15,6 @@ export default async function TasksPage() {
       <h1 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
         All Tasks
       </h1>
-
       <TaskListClient initialTasks={tasks} />
     </div>
   );
