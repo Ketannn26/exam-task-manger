@@ -2,6 +2,7 @@
 import { Task } from "@/types/task";
 import { TaskStatusBadge } from "./TaskStatusBadge";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 interface TaskCardProps {
   task: Task;
@@ -38,7 +39,9 @@ export function TaskCard({
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold text-gray-900 dark:text-gray-100 line-clamp-1">
-          {task.title}
+          <Link href={`/tasks/${task.id}`} className="hover:underline">
+            {task.title}
+          </Link>
         </h3>
         <span
           className={cn(

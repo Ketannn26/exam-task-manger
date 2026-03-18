@@ -7,7 +7,6 @@ import { useTaskForm } from "@/hooks/useTaskForm";
 import { useRouter } from "next/navigation";
 import { Task } from "@/types/task";
 
-// ✅ Inner form component — only mounts when real task data exists
 function EditForm({ task, id }: { task: Task; id: string }) {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
@@ -28,7 +27,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
       </h1>
 
       <div className="flex flex-col gap-4">
-        {/* Title */}
         <div>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Title *
@@ -45,7 +43,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           )}
         </div>
 
-        {/* Description */}
         <div>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Description
@@ -58,7 +55,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           />
         </div>
 
-        {/* Priority + Status */}
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -99,7 +95,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           </div>
         </div>
 
-        {/* Due Date */}
         <div>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Due Date *
@@ -119,7 +114,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           )}
         </div>
 
-        {/* Assigned To */}
         <div>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Assigned To
@@ -133,7 +127,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           />
         </div>
 
-        {/* Tags */}
         <div>
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Tags (comma separated)
@@ -155,7 +148,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
           />
         </div>
 
-        {/* Buttons */}
         <div className="flex gap-3 pt-2">
           <button
             onClick={onSubmit}
@@ -175,7 +167,6 @@ function EditForm({ task, id }: { task: Task; id: string }) {
   );
 }
 
-// ✅ Outer component — fetches data, only renders EditForm when ready
 export default function EditPage({
   params,
 }: {
@@ -206,6 +197,5 @@ export default function EditPage({
     return <div className="p-10 text-center text-red-500">Task not found.</div>;
   }
 
-  // EditForm only mounts here — after data is confirmed available
   return <EditForm task={existing} id={id} />;
 }
